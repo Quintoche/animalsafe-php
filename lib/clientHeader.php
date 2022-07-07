@@ -11,6 +11,8 @@
             protected static $CURL;
             protected static $HEADER;
 
+            public static $CURL_RESULT = '';
+
             public function __construct()
             {
                 animalsafeData::$API_URL = animalsafeData::$URL_NAME.animalsafeData::$SERVICE_NAME.'/'.animalsafeData::$OPERATION_NAME;
@@ -18,7 +20,7 @@
 
                 $this->curlSetHeaders();
                 $this->curlSetOptions();
-                $this->curlExecute();
+                return $this->curlExecute();
             }
 
             private function curlSetOptions()
@@ -43,8 +45,9 @@
                 );
 
                 curl_setopt(self::$CURL, CURLOPT_URL, animalsafeData::$API_URL);
-                curl_setopt(self::$CURL, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt(self::$CURL, CURLOPT_POST, 1);
+                curl_setopt(self::$CURL, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt(self::$CURL, CURLOPT_POST, true);
+                curl_setopt(self::$CURL, CURLOPT_FOLLOWLOCATION, false);
                 curl_setopt(self::$CURL, CURLOPT_HTTPHEADER, self::$HEADER);
             }
             private function curlCheckSSL()
@@ -57,7 +60,7 @@
             }
             private function curlCheckParameters()
             {
-
+                
             }
             private function curlCheckAuth()
             {
@@ -65,8 +68,10 @@
             }
             private function curlExecute()
             {
-                print_r(animalsafeData::$CURL_DATA_JSON);
-                echo curl_exec(self::$CURL);
+                self::$CURL_RESULT = curl_exec(self::$CURL);
+
+                return self::$CURL_RESULT = json_decode(json_encode(self::$CURL_RESULT),1);
+                curl_close(self::$CURL);
             }
         }
     }

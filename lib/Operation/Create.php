@@ -26,6 +26,17 @@
                 animalsafeData::$OPERATION_NAME = 'create';
                 animalsafeData::$URL_NAME = animalsafeClient::API_URL;
                 
+                $this->CheckForArgument($opts);
+                $this->CheckForType($opts);
+
+                animalsafeData::$CURL_DATA_ARRAY = $opts;
+
+                $return = new animalsafeHeader();
+                return json_decode($return::$CURL_RESULT,true);
+            }
+
+            private function CheckForArgument($opts)
+            {
                 foreach ($opts as $key => $value) {
 
                     if(!array_key_exists($key, clientFunction::getOptionsByService(animalsafeData::$OPERATION_NAME)))
@@ -33,6 +44,9 @@
                         throw ErrorArgument::NotValidArgument($key,clientFunction::getOptionsByService(animalsafeData::$OPERATION_NAME));
                     }
                 }
+            }
+            private function CheckForType($opts)
+            {
                 foreach ($opts as $key => $value) {
 
                     if(!clientFunction::checkTypeInArray($key,$value,clientFunction::getOptionsByService(animalsafeData::$OPERATION_NAME)))
@@ -40,13 +54,6 @@
                         throw ErrorArgument::NotCorrectType($value,clientFunction::getOptionsByService(animalsafeData::$OPERATION_NAME));
                     };
                 }
-
-                animalsafeData::$CURL_DATA_ARRAY = $opts;
-
-                return new animalsafeHeader();
-            }
-            public function __construct($opts){
-                echo 'bite';
             }
         }
     }

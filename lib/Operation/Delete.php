@@ -28,7 +28,8 @@
 
                 animalsafeData::$URL_NAME = animalsafeClient::API_URL;
 
-                return new animalsafeHeader();
+                $return = new animalsafeHeader();
+                return json_decode($return::$CURL_RESULT,true);
             }
         }
     }

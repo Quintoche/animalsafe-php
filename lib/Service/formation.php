@@ -59,6 +59,18 @@
                 'data_to_update' => 'json',
             ];
 
+            static $OPTIONS_test_create =
+            [
+               'date' => ['type'=>'date','default'=>'2022-01-01','canBeNull'=>false,],
+               'type' => ['type'=>'int','default'=>'0','canBeNull'=>false,],
+               'teacher' => ['type'=>'int','default'=>'0','canBeNull'=>false,],
+               'address' => ['type'=>'string','default'=>null,'canBeNull'=>true,],
+               'city' => ['type'=>'string','default'=>'n/a','canBeNull'=>false,],
+               'postal_code' => ['type'=>'int','default'=>'00000','canBeNull'=>false,],
+               'region' => ['type'=>'int','default'=>'0','canBeNull'=>false,],
+               'seat' => ['type'=>'int','default'=>'15','canBeNull'=>false,],
+            ];
+
             public function __construct()
             {
                 animalsafeData::$SERVICE_NAME = 'formation';
