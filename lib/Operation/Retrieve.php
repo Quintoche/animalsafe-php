@@ -19,12 +19,10 @@
              *
              * @return static
              */
-            public function delete($id, $opts)
+            public function retrieve($id, $opts)
             {
 
-                animalsafeData::$OPERATION_NAME = 'delete';
-
-                print_r(clientFunction::getOptionsByService(animalsafeData::$OPERATION_NAME));
+                animalsafeData::$OPERATION_NAME = 'retrieve';
 
                 animalsafeData::$URL_NAME = animalsafeClient::API_URL;
 

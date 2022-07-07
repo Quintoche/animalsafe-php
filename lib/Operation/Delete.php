@@ -24,8 +24,6 @@
 
                 animalsafeData::$OPERATION_NAME = 'delete';
 
-                print_r(clientFunction::getOptionsByService(animalsafeData::$OPERATION_NAME));
-
                 animalsafeData::$URL_NAME = animalsafeClient::API_URL;
 
                 $return = new animalsafeHeader();
