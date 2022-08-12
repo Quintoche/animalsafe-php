@@ -10,7 +10,6 @@
             use Operation\Delete;
             use Operation\Retrieve;
             use Operation\Update;
-            use Operation\Append;
 
             // Files
             use Operation\File;
@@ -23,7 +22,8 @@
                 'object' => 'string',
                 'limit' => 'int',
 
-                'parent' => 'string',
+                'parent_id' => 'string',
+                'parent_token' => 'string',
                 
                 'lien' => 'string',
 
@@ -42,7 +42,7 @@
                 'paiement-stripe' => 'string',
                 'paiement-facture' => 'string',
 
-                'acces' => 'string',
+                'access' => 'string',
                 'metadata' => 'string',
             ];
             static $options_Create = 
@@ -50,7 +50,8 @@
                 'object' => 'string',
                 'nom' => 'string',
                 'duree' => 'int',
-                'parent' => 'string',
+                'parent_id' => 'string',
+                'parent_token' => 'string',
                 'nom_complet' => 'string',
                 'nom_abrege' => 'string',
                 'sous_titre' => 'string',
@@ -105,17 +106,6 @@
                 'id' => 'int',
                 'data_to_update' => 'json',
             ];
-            static $options_Append = 
-            [
-                'object' => 'string',
-                'token' => 'string',
-                'where_to_append' => 'string',
-            ];
-            static $options_Append_alt = 
-            [
-                'id' => 'int',
-                'data_to_update' => 'json',
-            ];
 
             static $OPTIONS_test_create =
             [
@@ -138,7 +128,6 @@
                 animalsafeData::$OPTIONS_DELETE = $this::$options_Delete;
                 animalsafeData::$OPTIONS_RETRIEVE = $this::$options_Retrieve;
                 animalsafeData::$OPTIONS_UPDATE = $this::$options_Update;
-                animalsafeData::$OPTIONS_APPEND = $this::$options_Append;
 
             }
 

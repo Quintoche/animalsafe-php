@@ -16,15 +16,10 @@
             static $OPTIONS_DELETE = [];
             static $OPTIONS_RETRIEVE = [];
             static $OPTIONS_UPDATE = [];
-            static $OPTIONS_APPEND = [];
             static $OPTIONS_CREATE_ALT = [];
             static $OPTIONS_DELETE_ALT = [];
             static $OPTIONS_RETRIEVE_ALT = [];
             static $OPTIONS_UPDATE_ALT = [];
-            static $OPTIONS_APPEND_ALT = [];
-
-
-
 
             static $CURL_HEADER_ACCEPT = 'Accept: application/json';
             static $CURL_HEADER_BEARER = 'Authorization: Bearer ';
