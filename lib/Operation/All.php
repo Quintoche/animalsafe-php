@@ -19,16 +19,16 @@
              *
              * @return static
              */
-            public function all($id, $opts)
+            public function all($opts)
             {
-
                 animalsafeData::$OPERATION_NAME = 'all';
 
-                print_r(clientFunction::getOptionsByService(animalsafeData::$OPERATION_NAME));
-
+                animalsafeData::$CURL_DATA_ARRAY = $opts;
+                
                 animalsafeData::$URL_NAME = animalsafeClient::API_URL;
 
-                return new animalsafeHeader();
+                $return = new animalsafeHeader();
+                return json_decode($return::$CURL_RESULT,true);
             }
         }
     }

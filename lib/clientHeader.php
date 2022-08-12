@@ -16,6 +16,7 @@
             public function __construct()
             {
                 animalsafeData::$API_URL = animalsafeData::$URL_NAME.animalsafeData::$SERVICE_NAME.'/'.animalsafeData::$OPERATION_NAME;
+
                 animalsafeData::$CURL_HEADER_BEARER .= animalsafeClient::$API_KEY;
 
                 $this->curlSetHeaders();
@@ -32,7 +33,6 @@
                 {
                     throw ErrorNoInformation::SendMessage($e->getMessage());
                 }
-
                 curl_setopt(self::$CURL, CURLOPT_POSTFIELDS, animalsafeData::$CURL_DATA_JSON);
             }
             private function curlSetHeaders()
@@ -70,7 +70,7 @@
             {
                 self::$CURL_RESULT = curl_exec(self::$CURL);
 
-                return self::$CURL_RESULT = json_decode(json_encode(self::$CURL_RESULT),1);
+                return self::$CURL_RESULT = json_decode(json_encode(self::$CURL_RESULT),true);
                 curl_close(self::$CURL);
             }
         }

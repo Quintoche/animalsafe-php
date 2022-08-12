@@ -19,12 +19,14 @@
              *
              * @return static
              */
-            public function delete($id, $opts)
+            public function delete($opts)
             {
 
                 animalsafeData::$OPERATION_NAME = 'delete';
 
                 animalsafeData::$URL_NAME = animalsafeClient::API_URL;
+
+                animalsafeData::$CURL_DATA_ARRAY = $opts;
 
                 $return = new animalsafeHeader();
                 return json_decode($return::$CURL_RESULT,true);

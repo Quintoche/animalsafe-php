@@ -13,7 +13,7 @@
         class animalsafeClient
         {
 
-            const API_URL = 'http://api.animal-safe.fr/';
+            const API_URL = 'https://api.animal-safe.fr/';
             const FILE_URL = 'http://file.animal-safe.fr/';
             const PRINT_URL = 'http://print.animal-safe.fr/';
 

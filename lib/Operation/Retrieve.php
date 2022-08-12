@@ -19,12 +19,14 @@
              *
              * @return static
              */
-            public function retrieve($id, $opts)
+            public function retrieve($opts)
             {
 
                 animalsafeData::$OPERATION_NAME = 'retrieve';
 
                 animalsafeData::$URL_NAME = animalsafeClient::API_URL;
+
+                animalsafeData::$CURL_DATA_ARRAY = $opts;
 
                 $return = new animalsafeHeader();
                 return json_decode($return::$CURL_RESULT,true);

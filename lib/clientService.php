@@ -10,6 +10,7 @@
             [
                 'stagiaire' => \animalsafe\stagiaire::class,
                 'formation' => \animalsafe\formation::class,
+                'elearning' => \animalsafe\elearning::class,
             ];
 
             protected function getServiceClass($name)

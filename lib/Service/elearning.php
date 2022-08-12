@@ -1,7 +1,7 @@
 <?php
     namespace animalsafe
     {
-        class formation extends animalsafeClient
+        class elearning extends animalsafeClient
         {
 
             // API
@@ -10,6 +10,7 @@
             use Operation\Delete;
             use Operation\Retrieve;
             use Operation\Update;
+            use Operation\Append;
 
             // Files
             use Operation\File;
@@ -19,29 +20,65 @@
 
             static $options_All = 
             [
+                'object' => 'string',
                 'limit' => 'int',
-                'date' => 'date',
-                'type' => 'int',
-                'teacher' => 'int',
-                'address' => 'string',
-                'city' => 'string',
-                'postal_code' => 'int',
-                'region' => 'int',
-                'seat' => 'int',
+
+                'parent' => 'string',
+                
+                'lien' => 'string',
+
+                'ordre' => 'int',
+                'duree' => 'int',
+                
+                'type' => 'string',
+                'nom' => 'string',
+                'sous-titre' => 'string',
+                'introduction' => 'string',
+                'contenu' => 'string',
+
+                'newsletter' => 'int',
+
+                'paiement-etat' => 'string',
+                'paiement-stripe' => 'string',
+                'paiement-facture' => 'string',
+
+                'acces' => 'string',
+                'metadata' => 'string',
             ];
             static $options_Create = 
             [
-                'date' => 'date',
-                'type' => 'int',
-                'teacher' => 'int',
-                'address' => 'string',
-                'city' => 'string',
-                'postal_code' => 'int',
-                'region' => 'int',
-                'seat' => 'int',
+                'object' => 'string',
+                'nom' => 'string',
+                'duree' => 'int',
+                'parent' => 'string',
+                'nom_complet' => 'string',
+                'nom_abrege' => 'string',
+                'sous_titre' => 'string',
+                'introduction' => 'string',
+                'ordre' => 'int',
+                'type' => 'string',
+                'titre' => 'string',
+                'contenu' => 'string',
+                'username' => 'string',
+                'password' => 'string',
+                'prenom' => 'string',
+                'nom' => 'string',
+                'email' => 'string',
+                'newsletter' => 'int',
+                'adresse' => 'string',
+                'code_postal' => 'string',
+                'ville' => 'string',
+                'naissance_date' => 'date',
+                'naissance_ville' => 'string',
+                'paiement_etat' => 'string',
+                'paiement_stripe' => 'string',
+                'paiement_facture' => 'string',
+                'access' => 'string',
+                'metadata' => 'json',
             ];
             static $options_Delete = 
             [
+                'object' => 'string',
                 'token' => 'string',
             ];
             static $options_Delete_alt = 
@@ -50,6 +87,7 @@
             ];
             static $options_Retrieve = 
             [
+                'object' => 'string',
                 'token' => 'string',
             ];
             static $options_Retrieve_alt = 
@@ -58,10 +96,22 @@
             ];
             static $options_Update = 
             [
+                'object' => 'string',
                 'token' => 'string',
                 'data_to_update' => 'json',
             ];
             static $options_Update_alt = 
+            [
+                'id' => 'int',
+                'data_to_update' => 'json',
+            ];
+            static $options_Append = 
+            [
+                'object' => 'string',
+                'token' => 'string',
+                'where_to_append' => 'string',
+            ];
+            static $options_Append_alt = 
             [
                 'id' => 'int',
                 'data_to_update' => 'json',
@@ -81,13 +131,14 @@
 
             public function __construct()
             {
-                animalsafeData::$SERVICE_NAME = 'formation';
+                animalsafeData::$SERVICE_NAME = 'elearning';
 
                 animalsafeData::$OPTIONS_ALL = $this::$options_All;
                 animalsafeData::$OPTIONS_CREATE = $this::$options_Create;
                 animalsafeData::$OPTIONS_DELETE = $this::$options_Delete;
                 animalsafeData::$OPTIONS_RETRIEVE = $this::$options_Retrieve;
                 animalsafeData::$OPTIONS_UPDATE = $this::$options_Update;
+                animalsafeData::$OPTIONS_APPEND = $this::$options_Append;
 
             }
 
