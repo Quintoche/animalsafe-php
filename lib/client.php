@@ -39,7 +39,7 @@
                 if (null === $this->coreServiceFactory) {
                     $this->coreServiceFactory = new \animalsafe\Service\clientService($this);
                 }
-        
+
                 return $this->coreServiceFactory->__get($name);
             }
         }

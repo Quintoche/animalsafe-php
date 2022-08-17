@@ -101,10 +101,6 @@
             *
             * @return static
             */
-            public function create($opts)
-            {
-
-            }
 
         }
     }

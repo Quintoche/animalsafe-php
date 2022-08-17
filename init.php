@@ -24,5 +24,6 @@ require __DIR__ . '/lib/Operation/Export.php';
 // Services
 require __DIR__ . '/lib/Service/stagiaire.php';
 require __DIR__ . '/lib/Service/formation.php';
+require __DIR__ . '/lib/Service/elearning.php';
 
 ?>

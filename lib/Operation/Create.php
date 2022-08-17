@@ -22,7 +22,6 @@
              */
             public function create($opts)
             {
-
                 animalsafeData::$OPERATION_NAME = 'create';
                 animalsafeData::$URL_NAME = animalsafeClient::API_URL;
                 
@@ -32,7 +31,8 @@
                 animalsafeData::$CURL_DATA_ARRAY = $opts;
 
                 $return = new animalsafeHeader();
-                return json_decode($return::$CURL_RESULT,true);
+                
+                return $return::$CURL_RESULT;
             }
 
             private function CheckForArgument($opts)

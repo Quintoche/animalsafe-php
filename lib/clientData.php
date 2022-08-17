@@ -21,7 +21,7 @@
             static $OPTIONS_RETRIEVE_ALT = [];
             static $OPTIONS_UPDATE_ALT = [];
 
-            static $CURL_HEADER_ACCEPT = 'Accept: application/json';
+            static $CURL_HEADER_ACCEPT = 'Content-Type: application/json';
             static $CURL_HEADER_BEARER = 'Authorization: Bearer ';
 
             static $CURL_DATA_ARRAY = array();
